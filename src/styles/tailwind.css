@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-MaisonNeue-Book;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-MaisonNeue-Bold;
+}
+
+.menu-list li {
+  @apply cursor-pointer relative;
+}
+
+.menu-list li::after {
+  @apply absolute opacity-0 w-0;
+  content: "";
+  transform: scaleX(0);
+}
+
+.menu-list li:hover::after {
+  @apply absolute bg-white opacity-100 left-0 bottom-0 transition;
+  width: 100%;
+  height: 0.1rem;
+  transform: scaleX(1);
+}
+
+.hero {
+  height: 39rem;
+}
+
+/* .project-card:hover .companyName {
+  @apply transition -translate-y-5 delay-75 ease-in-out;
+} */
+
+.country-select:hover::before {
+  position: absolute;
+  content: url("../components/icons/caret-right.svg");
+  left: -1rem;
+}
+
+.menu-select:hover::before {
+  content: url("../components/icons/caret-large.svg");
+  right: 10rem;
+  margin-right: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "MaisonNeue-Light";
+    font-display: swap;
+    src: url(../assets/fonts/MaisonNeue-Light.otf) format("truetype");
+  }
+  @font-face {
+    font-family: "MaisonNeue-Book";
+    font-display: swap;
+    src: url(../assets/fonts/MaisonNeue-Book.otf) format("truetype");
+  }
+  @font-face {
+    font-family: "MaisonNeue-Bold";
+    font-display: swap;
+    src: url(../assets/fonts/MaisonNeue-Bold.otf) format("truetype");
+  }
+}
